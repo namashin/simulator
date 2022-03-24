@@ -53,19 +53,19 @@ class Window(object):
         self.port_entry_value = int(port_entry.get())
 
         # ボタン作成（接続, 送信、切断、送信b、クリア)------------------------------------------------------------------------
-        connect_button = Button(text='接続 (CL)', command=Client.connect(self.ip_entry_value, self.port_entry_value))
+        connect_button = Button(text='接続 (CL)', command=TODO)
         connect_button.place(x=30, y=100, width=200)
 
-        send_button = Button(text='送信', command=client.send)  # 引数をとるメソッドの場合lambda のしないと
+        send_button = Button(text='送信', command=TODO)  # 引数をとるメソッドの場合lambda のしないと
         send_button.place(x=30, y=170, width=90)
 
-        disconnect_button = Button(text='切断', command=client.close)
+        disconnect_button = Button(text='切断', command=TODO)
         disconnect_button.place(x=140, y=170, width=90)
 
-        send_b_button = Button(text='送信（ｂ）', command=client.send_b)
+        send_b_button = Button(text='送信（ｂ）', command=TODO)
         send_b_button.place(x=30, y=200, width=90)
 
-        clear_button = Button(text='クリア', command=client.clear)
+        clear_button = Button(text='クリア', command=TODO)
         clear_button.place(x=140, y=200, width=90)
 
         # テキストエリア作成------------------------------------------------------------------------------------------
@@ -103,7 +103,7 @@ class Window(object):
         checkbox = tkinter.Checkbutton(
             root,
             text='自動送信',
-            command=client.send_b,
+            command=TODO,
             variable=self.check_value
         )
         checkbox.place(x=450, y=100)
