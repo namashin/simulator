@@ -6,15 +6,9 @@ from client import Client
 
 
 class Window(object):
-    """シュミレーターの画面部分のみを作っているクラス
-
-
-    """
+    """シュミレーターの画面部分のみを作っているクラス"""
 
     def __init__(self):
-
-        # クライアントのインスタンス生成 command= の部分でClientクラスのメソッド使うため
-        client = Client()
 
         # ここから下がGUI画面作成コード ===========================================================================
         root = Tk()
@@ -52,8 +46,11 @@ class Window(object):
         port_entry.place(x=100, y=70, width=130)
         self.port_entry_value = int(port_entry.get())
 
-        # ボタン作成（接続, 送信、切断、送信b、クリア)------------------------------------------------------------------------
-        connect_button = Button(text='接続 (CL)', command=TODO)
+        # ボタン作成（接続, 送信、切断、送信b、クリア)--------------------------------------------------------------------
+        self.client = Client(self.ip_entry_value, self.port_entry_value, )
+
+        connect_button = Button(text='接続 (CL)',
+                                command=self.client.connect(self.ip_entry_value, self.port_entry_value))
         connect_button.place(x=30, y=100, width=200)
 
         send_button = Button(text='送信', command=TODO)  # 引数をとるメソッドの場合lambda のしないと
@@ -109,9 +106,8 @@ class Window(object):
         checkbox.place(x=450, y=100)
 
         # リストボックス作成-----------------------------------------------------------------------------------------
-        # with open('b.csv', 'rb') as f:
-        #     f.read()
-        #  リスト化したいファイルをここに
+        with open('b.csv', 'rb') as f:
+            f.read()
 
         v = StringVar(value=list)
         list_box = Listbox(
@@ -124,6 +120,15 @@ class Window(object):
 
         # GUI表示させる---------------------------------------------------------------------------------------------
         root.mainloop()
+
+
+def TODO():
+    """
+    in the button command,
+    you can write client side method.
+    like as connect, close, and so on
+    """
+    pass
 
 
 if __name__ == '__main__':
